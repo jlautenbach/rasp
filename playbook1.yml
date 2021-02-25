@@ -1,6 +1,8 @@
 - hosts: rpcu
   become: yes
   roles:
+    - geerlingguy.supervisor
+    - geerlingguy.daemonize
     - common
   tags:
     rpcu
