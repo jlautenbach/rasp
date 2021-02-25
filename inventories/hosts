@@ -1,3 +1,2 @@
-
-[lab]
-localhost ansible_host=10.1.1.28 ansible_user=pi
+[rpcu]
+rpi1 ansible_host=lain.internetisforporn.com ansible_user=pi
