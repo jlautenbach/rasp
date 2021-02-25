@@ -7,7 +7,7 @@
 
 - name: "Install Common packages"
   apt:
-    name: ['runc', 'python3-pip', 'docker.io', 'python3-venv', 'docker-compose']
+    name: ['runc', 'python3-pip', 'docker.io', 'python3-venv', 'docker-compose', 'curl']
     state: latest
   tags: installation, packages
 
