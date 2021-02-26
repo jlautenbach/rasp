@@ -7,7 +7,7 @@
 
 - name: "Install Common packages"
   apt:
-    name: ['runc', 'python3-pip', 'docker.io', 'python3-venv', 'docker-compose', 'curl', 'aircrack-ng']
+    name: ['runc', 'python3-pip', 'docker.io', 'python3-venv', 'docker-compose', 'curl', 'aircrack-ng', 'screen', 'firmware-b43-installer']
     state: latest
   tags: installation, packages
 
