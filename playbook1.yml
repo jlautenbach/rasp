@@ -1,8 +1,10 @@
 - hosts: rpcu
   become: yes
-  collections:
-    - performancecopilot.metrics
   roles:
+    - performancecopilot.metrics.pcp
+    - performancecopilot.metrics.redis
+    - performancecopilot.metrics.repository
+    - performancecopilot.metrics.grafana
     - common
   tags:
     rpcu
