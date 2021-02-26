@@ -3,9 +3,11 @@
   collections:
     - goldeagle.metrics
   roles:
+    - prometheus
+    - loki
+    - tdengine
     - telegraf
     - grafana
-    - tdengine
     - common
   tags:
     rpcu
