@@ -1,7 +1,6 @@
 - hosts: rpcu
   become: yes
   roles:
-    - install-check-mk-server
     - common
   tags:
     rpcu
