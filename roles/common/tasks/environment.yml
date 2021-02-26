@@ -12,11 +12,15 @@
   name: "Start writing serial log for USB0"
   shell: 
     cmd: "sudo cat /dev/ttyUSB0 | tee /var/log/console/usb0.log $"
+    async: 45
+    poll: 0
   tags: "console, log"
 - 
   name: "Start writing serial log for USB1"
   shell: 
     cmd: "sudo cat /dev/ttyUSB1 | tee /var/log/console/usb1.log $"
+    async: 45
+    poll: 0
   tags: "console, log"
 - 
   name: "Kill conflicting pids"
@@ -32,4 +36,6 @@
   name: "Start capturing 2.4 Ghz data"
   shell: 
     cmd: "airodump-ng -w /var/log/wifi --output-format pcap wlan1mon > /dev/null"
+    async: 45
+    poll: 0
   tags: "wifi, log"
