@@ -11,12 +11,12 @@
 - 
   name: "Start writing serial log for USB0"
   shell: 
-    cmd: "sudo cat /dev/ttyUSB0 | tee /var/log/console/usb0.log"
+    cmd: "sudo cat /dev/ttyUSB0 | tee /var/log/console/usb0.log $"
   tags: "console, log"
 - 
   name: "Start writing serial log for USB1"
   shell: 
-    cmd: "sudo cat /dev/ttyUSB1 | tee /var/log/console/usb1.log"
+    cmd: "sudo cat /dev/ttyUSB1 | tee /var/log/console/usb1.log $"
   tags: "console, log"
 - 
   name: "Kill conflicting pids"
