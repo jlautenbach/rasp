@@ -1,10 +1,13 @@
 - hosts: rpcu
   become: yes
+  collections:
+    - goldeagle.metrics
   roles:
-    - performancecopilot.metrics.pcp
-    - performancecopilot.metrics.redis
-    - performancecopilot.metrics.repository
-    - performancecopilot.metrics.grafana
+    - telegraf
+    - grafana
+    - tdengine
     - common
   tags:
     rpcu
+
+
