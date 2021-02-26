@@ -4,7 +4,6 @@
     - goldeagle.metrics
   roles:
     - loki
-    - tdengine
     - telegraf
     - grafana
     - common
