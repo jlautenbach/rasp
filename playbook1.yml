@@ -1,11 +1,7 @@
 - hosts: rpcu
   become: yes
-  collections:
-    - goldeagle.metrics
   roles:
-    - loki
-    - telegraf
-    - grafana
+    - install-check-mk-server
     - common
   tags:
     rpcu
