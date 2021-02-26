@@ -3,3 +3,29 @@
     src=.bash_aliases 
     dest="/home/pi/.bash_aliases"
   tags: aliases
+  
+- name: "Start writing serial log for USB0"
+  shell: 
+    cmd: sudo daemonize screen –L Logfile /var/tmp/log/usb0.log /dev/ttyUSB0 152000 
+  tags: console, log
+  
+- name: "Start writing serial log for USB1"
+  shell: 
+    cmd: sudo daemonize screen –L Logfile /var/log//usb1.log /dev/ttyUSB1 152000 
+  tags: console, log
+  
+- name: "Kill conflicting pids"
+  shell: 
+    cmd: sudo airmon-ng check kill
+  tags: wifi, log
+  
+  - name: "Put wlxec086b1ed2c8 in monitor mode"
+  shell: 
+    cmd: sudo airmon-ng wlxec086b1ed2c8 start
+  tags: wifi, log
+  
+- name: "Start capturing 2.4 Ghz data"
+  shell: 
+    cmd: airodump-ng -w /var/log/wifi --output-format pcap wlan1mon > /dev/null
+  tags: wifi, log
+  
