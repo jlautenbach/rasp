@@ -4,14 +4,19 @@
   name: "Copy aliases"
   tags: aliases
 - 
+  name: "Set baudrate to 115200 for both serial-usb interfaces"
+  shell: 
+    cmd: "sudo stty -F /dev/ttyUSB0 115200; sudo stty -F /dev/ttyUSB1 115200;"
+  tags: "console, log"
+- 
   name: "Start writing serial log for USB0"
   shell: 
-    cmd: "sudo daemonize screen –L Logfile /var/tmp/log/usb0.log /dev/ttyUSB0 152000"
+    cmd: "sudo cat /dev/ttyUSB0 | tee /var/log/console/usb0.log"
   tags: "console, log"
 - 
   name: "Start writing serial log for USB1"
   shell: 
-    cmd: "sudo daemonize screen –L Logfile /var/log//usb1.log /dev/ttyUSB1 152000"
+    cmd: "sudo cat /dev/ttyUSB1 | tee /var/log/console/usb1.log"
   tags: "console, log"
 - 
   name: "Kill conflicting pids"
