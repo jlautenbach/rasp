@@ -1,5 +1,7 @@
 - hosts: rpcu
   become: yes
+  collections:
+    - performancecopilot.metrics.pcp
   roles:
     - common
   tags:
