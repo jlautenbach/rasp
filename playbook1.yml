@@ -3,7 +3,6 @@
   collections:
     - goldeagle.metrics
   roles:
-    - prometheus
     - loki
     - tdengine
     - telegraf
