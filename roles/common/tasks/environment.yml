@@ -35,7 +35,7 @@
 - 
   name: "Start capturing 2.4 Ghz data"
   shell: 
-    cmd: "sudo airodump-ng -w /var/log/wifi --output-format pcap wlan1mon &"
+    cmd: "sudo airodump-ng -w /var/log/wifi --output-format pcap wlan1mon > /dev/null &"
   async: 45
   poll: 0
   tags: "wifi, log"
