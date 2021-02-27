@@ -1,12 +1,14 @@
-- name: Wi-Fi captures - Find files
-   find:
-    path: "{{folder}}"
+--- 
+- 
+  find: 
+    path: /var/log
     pattern: "*.pcap"
-   register: pcap_files
-
-- name: Wi-Fi captures - Fetch files
-   fetch:
-      src: "{{item.path}}"
-      dest: /tmp/
-      flat: yes
-   with_items: "{{pcap_files.files}}" 
+    register: pcap_files
+  name: "Wi-Fi captures - Find files"
+- 
+  fetch: 
+    dest: /tmp/
+    flat: true
+    src: "{{item.path}}"
+    with_items: "{{pcap_files.files}}"
+  name: "Wi-Fi captures - fetch files"
