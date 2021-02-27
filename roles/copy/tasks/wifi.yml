@@ -1,5 +1,5 @@
 --- 
-- 
+- name: "Copying wifi captures to /var/log"
   become: true
   hosts: rpcu
   tags: rpcu
@@ -11,4 +11,3 @@
         owner: root
         src: /var/log/wifi-*.pcap
       mode: 777
-      name: "Copying wifi captures to /var/log"
