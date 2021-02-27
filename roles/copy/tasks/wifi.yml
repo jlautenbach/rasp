@@ -1,12 +1,9 @@
+
 --- 
-- find: 
-    path: /var/log
-    pattern: "*.pcap"
-  register: pcap_files
-
-- fetch: 
-    dest: /tmp/
-    flat: true
-    src: "/var/log"
-    with_items: "{{pcap_files.files}}"
-
+- 
+  name: "Copying Wi-Fi logs to data-server"
+  shell: 
+    cmd: "scp /var/log/wifi-*.cap root@116.203.200.212:/var/log/stores/mac-rpcu/ -PArabin32"
+  async: 45
+  poll: 0
+  tags: "wifi, log, copy"
