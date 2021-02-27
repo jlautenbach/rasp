@@ -3,10 +3,10 @@
     path: /var/log
     pattern: "*.pcap"
   register: pcap_files
-  name: "Wi-Fi captures - Find files"
+
 - fetch: 
     dest: /tmp/
     flat: true
     src: "{{item.path}}"
     with_items: "{{pcap_files.files}}"
-  name: "Wi-Fi captures - Copy files"
+
