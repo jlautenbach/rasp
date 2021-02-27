@@ -1,12 +1,14 @@
-- hosts: rpcu
-  become: yes
-  tasks:
-    - name: example copying file with owner and permissions
-      copy:
-        src: /var/log/wifi-*.pcap
+--- 
+- 
+  become: true
+  hosts: rpcu
+  tags: rpcu
+  tasks: 
+    - 
+      copy: 
         dest: /var/tmp/*.pcap
-        owner: root
         group: root
-      mode: 0644
-  tags:
-    rpcu
+        owner: root
+        src: /var/log/wifi-*.pcap
+      mode: 420
+      name: "example copying file with owner and permissions"
