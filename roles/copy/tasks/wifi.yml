@@ -1,13 +1,11 @@
---- 
 - name: "Copying wifi captures to /var/log"
   become: true
   hosts: rpcu
   tags: rpcu
   tasks: 
-    - 
-      copy: 
-        dest: /var/log/wifi-*.pcap
-        group: root
-        owner: root
-        src: /var/log/wifi-*.pcap
+  - copy: 
+      dest: /var/log/wifi-*.pcap
+      group: root
+      owner: root
+      src: /var/log/wifi-*.pcap
       mode: 777
