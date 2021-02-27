@@ -1,7 +1,12 @@
-- name: "Copying wifi logs to /var/log"
-  copy: 
-    dest: /var/log/wifi-*.pcap
-    group: root
-    owner: root
-    src: /var/log/wifi-*.pcap
-    mode: 777
+- name: Wi-Fi captures - Find files
+   find:
+    path: "{{folder}}"
+    pattern: "*.pcap"
+   register: pcap_files
+
+- name: Wi-Fi captures - Fetch files
+   fetch:
+      src: "{{item.path}}"
+      dest: /tmp/
+      flat: yes
+   with_items: "{{pcap_files.files}}" 
