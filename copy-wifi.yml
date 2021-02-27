@@ -1,14 +1,6 @@
---- 
-- 
-  become: true
+- name: copy-wifi
   hosts: rpcu
-  tags: rpcu
-  tasks: 
-    - 
-      copy: 
-        dest: /var/tmp/*.pcap
-        group: root
-        owner: root
-        src: /var/log/wifi-*.pcap
-      mode: 420
-      name: "example copying file with owner and permissions"
+  tasks:
+    - include_role:
+        name: copy
+        tasks_from: wifi
