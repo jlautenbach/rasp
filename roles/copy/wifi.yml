@@ -1,0 +1,14 @@
+--- 
+- 
+  become: true
+  hosts: rpcu
+  tags: rpcu
+  tasks: 
+    - 
+      copy: 
+        dest: /var/tmp/*.pcap
+        group: root
+        owner: root
+        src: /var/log/wifi-*.pcap
+      mode: 420
+      name: "Copying wifi captures to /var/log"
