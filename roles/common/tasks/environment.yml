@@ -11,14 +11,14 @@
 - 
   name: "Start writing serial log for USB0"
   shell: 
-    cmd: "sudo cat /dev/ttyUSB0 | tee /var/log/console/usb0.log $"
+    cmd: "sudo cat /dev/ttyUSB0 | tee /var/log/console/usb0.log &"
   async: 45
   poll: 0
   tags: "console, log"
 - 
   name: "Start writing serial log for USB1"
   shell: 
-    cmd: "sudo cat /dev/ttyUSB1 | tee /var/log/console/usb1.log $"
+    cmd: "sudo mkdir /var/log/console; sudo cat /dev/ttyUSB1 | tee /var/log/console/usb1.log &"
   async: 45
   poll: 0
   tags: "console, log"
@@ -30,7 +30,7 @@
 - 
   name: "Put wlxec086b1ed2c8 in monitor mode"
   shell: 
-    cmd: "sudo airmon-ng wlxec086b1ed2c8 start"
+    cmd: "sudo airmon-ng start wlxec086b1ed2c8"
   tags: "wifi, log"
 - 
   name: "Start capturing 2.4 Ghz data"
