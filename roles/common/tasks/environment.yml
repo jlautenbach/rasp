@@ -1,9 +1,5 @@
 --- 
 - 
-  copy: "src=.bash_aliases dest=\"/home/pi/.bash_aliases\""
-  name: "Copy aliases"
-  tags: aliases
-- 
   name: "Set baudrate to 115200 for both serial-usb interfaces"
   shell: 
     cmd: "sudo stty -F /dev/ttyUSB0 115200; sudo stty -F /dev/ttyUSB1 115200;"
